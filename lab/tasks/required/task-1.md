@@ -257,6 +257,18 @@ The code stubs in `backend/app/etl.py` contain detailed TODOs.
 
    The exact numbers depend on how many check results exist in the autochecker.
 
+   > [!TIP]
+   > **If you get a `500` error**, the pipeline code has a bug. Use this debug loop:
+   >
+   > 1. Check the container logs:
+   >    ```terminal
+   >    docker compose --env-file .env.docker.secret logs app --tail 50
+   >    ```
+   > 2. Copy the error traceback and give it to your coding agent.
+   > 3. Apply the fix, rebuild (`docker compose --env-file .env.docker.secret up --build -d`), and try again.
+   >
+   > It is normal to repeat this 2–3 times. AI agents often make mistakes with field names, imports, or database constraints on the first try. Each iteration gets you closer.
+
    <details><summary>Troubleshooting</summary>
 
    <h4>401 Unauthorized from the autochecker API</h4>
