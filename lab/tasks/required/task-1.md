@@ -38,11 +38,11 @@ Your agent needs an LLM that supports the OpenAI-compatible chat completions API
 
 **Recommended models** (free, reliable tool calling):
 
-| Model | Tool calling | Notes |
-|-------|-------------|-------|
-| `meta-llama/llama-3.3-70b-instruct:free` | Strong | Default in `.env.agent.example` |
-| `mistralai/mistral-small-3.1-24b-instruct:free` | Strong | Good alternative |
-| `qwen/qwen3-coder:free` | Good | Alternative |
+| Model                                           | Tool calling | Notes                           |
+| ----------------------------------------------- | ------------ | ------------------------------- |
+| `meta-llama/llama-3.3-70b-instruct:free`        | Strong       | Default in `.env.agent.example` |
+| `mistralai/mistral-small-3.1-24b-instruct:free` | Strong       | Good alternative                |
+| `qwen/qwen3-coder:free`                         | Good         | Alternative                     |
 
 > [!TIP]
 > Free models change frequently on OpenRouter. Check the [free models collection](https://openrouter.ai/collections/free-models) for the latest list. Filter for models that support **tool calling** — you will need this in Tasks 2–3.
@@ -59,6 +59,7 @@ Edit `.env.agent.secret` and fill in `LLM_API_KEY`, `LLM_API_BASE`, and `LLM_MOD
 
 > [!WARNING]
 > **Rate limits on free models:**
+>
 > - Free-tier models have a **50 requests per day** limit per account.
 > - Free models can also be **temporarily unavailable** due to upstream provider load. If you get a `429` error with a message about "temporarily rate-limited upstream", it means the model is overloaded — not that you hit your daily limit. Try again later or switch to a different free model.
 > - Plan your testing carefully: use `run_eval.py --index N` to test one question at a time instead of running the full eval repeatedly.
